@@ -1,6 +1,6 @@
 // src/App.jsx
 import React, { useState, useEffect } from "react";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Box } from "@mui/material";
 import axios from "axios";
 import SearchField from "./components/SearchField";
 import CurrentWeather from "./components/CurrentWeather";
@@ -79,20 +79,28 @@ const App = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" gutterBottom align="center">
-        Weather App
-      </Typography>
-      <SearchField
-        city={city}
-        setCity={setCity}
-        fetchWeatherByCity={fetchWeatherByCity}
-        suggestions={suggestions}
-        fetchCitySuggestions={fetchCitySuggestions}
-      />
-      {weather && <CurrentWeather weather={weather} />}
-      {forecast.length > 0 && <Forecast forecast={forecast} />}
-    </Container>
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+      minWidth="100vw"
+    >
+      <Container maxWidth="sm">
+        <Typography variant="h4" gutterBottom align="center">
+          Weather App
+        </Typography>
+        <SearchField
+          city={city}
+          setCity={setCity}
+          fetchWeatherByCity={fetchWeatherByCity}
+          suggestions={suggestions}
+          fetchCitySuggestions={fetchCitySuggestions}
+        />
+        {weather && <CurrentWeather weather={weather} />}
+        {forecast.length > 0 && <Forecast forecast={forecast} />}
+      </Container>
+    </Box>
   );
 };
 
